@@ -1,0 +1,92 @@
+/* Base.css */
+
+/* Main container for the base selection */
+.base-container {
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 20px auto;
+  max-width: 900px; /* Ensures the container doesn't stretch too wide */
+}
+
+/* Section title styling */
+.base-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Neutral dark text color */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Flexbox container for base options */
+.base-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Consistent spacing between cards */
+}
+
+/* Each individual base card styling */
+.base-card {
+  background-color: #f9f9f9; /* Neutral background for the card */
+  border: 2px solid #ddd; /* Subtle default border */
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  padding: 20px;
+  width: 180px; /* Consistent card size */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; /* Smooth hover animation */
+}
+
+/* Card hover effect */
+.base-card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  border-color: #ff5722; /* Highlight border on hover */
+}
+
+/* Styling for selected card */
+.base-card.selected {
+  border-color: #ff5722; /* Highlight selected card */
+  background-color: #ffe8e0; /* Light orange background for selected state */
+  color: #ff5722; /* Highlight text color */
+}
+
+/* Image inside the card */
+.base-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  object-fit: cover; /* Ensures the image fits perfectly */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for images */
+}
+
+/* Base name text */
+.base-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Base price text */
+.base-card p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555; /* Slightly darker than the background */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .base-card {
+    width: 100%; /* Stack cards vertically on small screens */
+  }
+
+  .base-options {
+    flex-direction: column; /* Align options in a single column */
+  }
+}

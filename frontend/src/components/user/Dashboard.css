@@ -1,0 +1,275 @@
+/* Dashboard.css */
+.dashboard {
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.section p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.btn {
+    background-color: #ff5722;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e64a19;
+}
+
+/* PizzaBuilder - Base, Sauce, Veggies, Cheese, Summary */
+/* Base.css */
+.base-selection {
+    padding: 20px;
+}
+
+.base-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.base-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.base-item.selected {
+    border: 2px solid #ff5722;
+    background-color: #ffe6e6;
+}
+
+.base-item:hover {
+    transform: scale(1.05);
+}
+
+.base-item h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.base-item p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Veggies.css */
+.toppings-container {
+    padding: 20px;
+}
+
+.toppings-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.topping-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.topping-card.selected {
+    border: 2px solid #ff5722;
+    background-color: #ffe6e6;
+}
+
+.topping-card:hover {
+    transform: scale(1.05);
+}
+
+.topping-card h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.topping-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Cheese.css */
+.sauce-container,
+.toppings-container {
+    padding: 20px;
+}
+
+.topping-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sauce-card,
+.topping-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.sauce-card.selected,
+.topping-card.selected {
+    border: 2px solid #ff5722;
+    background-color: #ffe6e6;
+}
+
+.sauce-card:hover,
+.topping-card:hover {
+    transform: scale(1.05);
+}
+
+.next-btn {
+    margin-top: 20px;
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.next-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Summary.css */
+.summary {
+    padding: 20px;
+    text-align: center;
+}
+
+.summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.summary li {
+    margin: 8px 0;
+}
+
+.confirm-btn {
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #388e3c;
+}
+
+/* Checkout.css */
+.checkout {
+    padding: 20px;
+    text-align: center;
+}
+
+.checkout button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout button:hover {
+    background-color: #e64a19;
+}
+
+/* OrderHistory.css */
+.order-history {
+    padding: 20px;
+    text-align: center;
+}
+
+.order-history table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.order-history th,
+.order-history td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.order-history th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* OrderStatus.css */
+.order-status {
+    padding: 20px;
+    text-align: center;
+}
+
+.order-status ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-status li {
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-status span {
+    font-weight: bold;
+}

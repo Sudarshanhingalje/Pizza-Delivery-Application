@@ -1,0 +1,24 @@
+.order-history {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.order-history h2 {
+    margin-bottom: 15px;
+}
+
+.order-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-history th,
+.order-history td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.order-history th {
+    background-color: #f4f4f4;
+}
