@@ -1,4 +1,4 @@
-/* Base styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,14 +10,14 @@
     background-color: #fff5e6;
 }
 
-/* Navigation styles */
+
 .nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .nav-brand {
@@ -121,9 +121,6 @@
     position: relative;
     animation: modalSlideIn 0.3s ease-out;
 }
-
-
-
 .modal-close {
     position: absolute;
     top: 1rem;

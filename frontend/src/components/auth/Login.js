@@ -24,13 +24,31 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log('Login attempted with:', formData);
-            localStorage.setItem('isLoggedIn', 'true');
-            navigate('/PizzaBuilder');
+            const response = await fetch('http://localhost:2000/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+    
+            const data = await response.json();
+            if (response.ok) {
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('isAdmin', data.isAdmin);
+                localStorage.setItem('name', data.name);
+    
+                if (data.isAdmin) {
+                    navigate('/admin-dashboard'); // Redirect to admin dashboard
+                } else {
+                    navigate('/PizzaBuilder'); // Redirect to user dashboard
+                }
+            } else {
+                setError(data.error || 'Login failed.');
+            }
         } catch (err) {
-            setError('Login failed. Please check your credentials.');
+            setError('An error occurred during login.');
         }
     };
+    
 
     const toggleModal = () => {
         setShowModal(!showModal);

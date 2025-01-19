@@ -5,6 +5,8 @@ const orderSchema = new mongoose.Schema({
     items: [Object],
     totalAmount: Number,
     status: { type: String, default: 'Order Received' },
+    status: { type: String, enum: ['Received', 'In Kitchen', 'Sent to Delivery'], default: 'Received' },
+
     createdAt: { type: Date, default: Date.now },
 });
 

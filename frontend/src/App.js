@@ -10,6 +10,8 @@ import Base from './components/user/PizzaBuilder/Base';
 import PizzaBuilder from './components/user/PizzaBuilder/PizzaBuilder';
 import Summary from './components/user/PizzaBuilder/Summary';
 import Checkout from './components/user/PizzaBuilder/Checkout';
+import Dashboardadmin from './components/admin/Dashboard';
+import AdminRoute from './components/admin/AdminRoute';
 
 const App = () => {
     return (
@@ -27,6 +29,7 @@ const App = () => {
                 <Route path="/order-status" element={<OrderStatus />} />
 
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/admin-dashboard" element={<AdminRoute><Dashboardadmin /></AdminRoute>} />
             </Routes>
         </Router>
     );

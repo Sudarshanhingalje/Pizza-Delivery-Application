@@ -44,30 +44,32 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        // Compare provided password with hashed password in DB
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).json({ error: 'Invalid credentials' });
         }
 
-        // Generate JWT token
         const token = jwt.sign(
             { id: user._id, isAdmin: user.isAdmin },
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
         );
 
-        res.json({ token, isAdmin: user.isAdmin });
+        res.json({ 
+            token, 
+            isAdmin: user.isAdmin, 
+            name: user.name 
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
+
 
 // Forgot password
 exports.forgotPassword = async (req, res) => {
