@@ -1,11 +1,8 @@
 const express = require('express');
 const { getInventory, updateStock } = require('../controllers/inventoryController');
+const authMiddleware = require('../middleware/auth');
 const router = express.Router();
 
-// Route to get inventory
-router.get('/', getInventory);
-
-// Route to update stock
-router.put('/update', updateStock);
-
+router.get('/', authMiddleware, getInventory);
+router.put('/update', authMiddleware, updateStock);
 module.exports = router;

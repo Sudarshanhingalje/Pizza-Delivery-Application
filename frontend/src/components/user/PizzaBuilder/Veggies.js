@@ -1,4 +1,3 @@
-// File: Veggies.js
 import React, { useState } from 'react';
 import './Veggies.css';
 
@@ -10,7 +9,6 @@ const Veggies = ({ onVeggiesSelect }) => {
         { name: 'Olives', price: 40, image: require('../../../assets/veggies/olives.png') },
         { name: 'Jalapeños', price: 35, image: require('../../../assets/veggies/jalapenos.png') },
     ];
-
     const [selectedVeggies, setSelectedVeggies] = useState([]);
 
     const handleVeggiesChange = (veggie) => {

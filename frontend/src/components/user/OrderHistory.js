@@ -1,50 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './OrderHistory.css';
+import axios from 'axios';
 
 const OrderHistory = () => {
     const [orders, setOrders] = useState([]);
-    const navigate = useNavigate(); 
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-        const storedOrders = JSON.parse(localStorage.getItem('orderHistory')) || [];
-        setOrders(storedOrders);
+        axios.get('http://localhost:2000/api/orders')
+            .then(response => {
+                setOrders(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                setError(error);
+                setLoading(false);
+            });
     }, []);
-    const handleRedirect = () => {
-        navigate('/');  // Navigate to the Login page when button is clicked
-    };
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div className="order-history">
+        <div>
             <h2>Order History</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Items</th>
-                        <th>Total</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.length > 0 ? (
-                        orders.map((order, index) => (
-                            <tr key={index}>
-                                <td>{order.id}</td>
-                                <td>{order.items}</td>
-                                <td>{order.total}</td>
-                                <td>{order.date}</td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="4">No orders found</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-            <button className="pay-button" onClick={handleRedirect}>
-                Let's Built More Pizza..!
-            </button>
+            <ul>
+                {orders.map(order => (
+                    <li key={order.id}>{order.name}</li>
+                ))}
+            </ul>
         </div>
     );
 };

@@ -1,4 +1,3 @@
-// File: Cheese.js
 import React, { useState } from 'react';
 import './Cheese.css';
 
@@ -10,7 +9,6 @@ const Cheese = ({ onCheeseSelect }) => {
         { name: 'Gouda', price: 65, image: require('../../../assets/cheese/gouda.png') },
         { name: 'Feta', price: 55, image: require('../../../assets/cheese/feta.png') },
     ];
-
     const [selectedCheese, setSelectedCheese] = useState('');
 
     const handleCheeseChange = (cheese) => {

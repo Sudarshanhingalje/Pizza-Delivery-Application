@@ -1,22 +1,19 @@
-// File: Base.js
 import React, { useState } from 'react';
 import './Base.css';
 
-const Base = ({ onSelectBase }) => { // Destructure onSelectBase from props
+const Base = ({ onSelectBase }) => {
     const bases = [
         { name: 'Thin Crust', price: 150, image: require('../../../assets/base/thin-crust.png') },
         { name: 'Thick Crust', price: 200, image: require('../../../assets/base/thick-crust.png') },
         { name: 'Cheese Burst', price: 250, image: require('../../../assets/base/cheese-burst.png') },
+        { name: 'Whole Wheat Crust', price: 180, image: require('../../../assets/base/whole-wheat-crust.png') },
+        { name: 'Gluten-Free Crust', price: 220, image: require('../../../assets/base/gluten-free-crust.png') },
     ];
     const [selectedBase, setSelectedBase] = useState('');
 
     const handleBaseChange = (base) => {
         setSelectedBase(base.name);
-        if (typeof onSelectBase === 'function') {
-            onSelectBase({ name: base.name, price: base.price, image: base.image });
-        } else {
-            console.error('onSelectBase is not a function');
-        }
+        onSelectBase({ name: base.name, price: base.price, image: base.image });
     };
 
     return (

@@ -1,13 +1,21 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    items: [Object],
-    totalAmount: Number,
-    status: { type: String, default: 'Order Received' },
-    status: { type: String, enum: ['Received', 'In Kitchen', 'Sent to Delivery'], default: 'Received' },
-
+    user: { type: String, required: true }, // Changed from ObjectId to String
+    items: [
+        {
+            itemName: { type: String, required: true },
+            quantity: { type: Number, required: true },
+        },
+    ],
+    status: {
+        type: String,
+        enum: ['Order Received', 'In Kitchen', 'Sent to Delivery'], // Valid enum values
+        default: 'Order Received',
+    },
     createdAt: { type: Date, default: Date.now },
+    address: { type: String, required: true },
+    pincode: { type: String, required: true },
 });
 
 module.exports = mongoose.model('Order', orderSchema);

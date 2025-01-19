@@ -1,275 +1,243 @@
 /* Dashboard.css */
-.dashboard {
-    padding: 20px;
-    text-align: center;
+
+/* Main Layout */
+.user-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.dashboard-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Logo Section */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.section {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.logo-container {
+  background-color: #ff4b4b;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.section h2 {
-    font-size: 20px;
-    margin-bottom: 8px;
+.logo-container svg {
+  color: white;
+  width: 32px;
+  height: 32px;
 }
 
-.section p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 12px;
+/* Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.btn {
-    background-color: #ff5722;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+.stat-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-.btn:hover {
-    background-color: #e64a19;
+.stat-card:hover {
+  transform: translateY(-2px);
 }
 
-/* PizzaBuilder - Base, Sauce, Veggies, Cheese, Summary */
-/* Base.css */
-.base-selection {
-    padding: 20px;
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
-.base-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.stat-title {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
 }
 
-.base-item {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    width: 150px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
 }
 
-.base-item.selected {
-    border: 2px solid #ff5722;
-    background-color: #ffe6e6;
+/* Orders List */
+.orders-container {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.base-item:hover {
-    transform: scale(1.05);
+.orders-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.base-item h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
+.orders-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
 }
 
-.base-item p {
-    font-size: 14px;
-    color: #555;
+.orders-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
 }
 
-/* Veggies.css */
-.toppings-container {
-    padding: 20px;
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.toppings-options {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.order-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.topping-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    width: 150px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+.order-item:last-child {
+  border-bottom: none;
 }
 
-.topping-card.selected {
-    border: 2px solid #ff5722;
-    background-color: #ffe6e6;
+.order-item:hover {
+  background-color: #f9fafb;
 }
 
-.topping-card:hover {
-    transform: scale(1.05);
+.order-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.topping-card h4 {
-    font-size: 16px;
-    margin-bottom: 8px;
+.order-info {
+  flex: 1;
 }
 
-.topping-card p {
-    font-size: 14px;
-    color: #555;
+.order-id {
+  font-weight: 500;
+  color: #111827;
 }
 
-/* Cheese.css */
-.sauce-container,
-.toppings-container {
-    padding: 20px;
-}
-
-.topping-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.sauce-card,
-.topping-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    width: 150px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-}
-
-.sauce-card.selected,
-.topping-card.selected {
-    border: 2px solid #ff5722;
-    background-color: #ffe6e6;
-}
-
-.sauce-card:hover,
-.topping-card:hover {
-    transform: scale(1.05);
-}
-
-.next-btn {
-    margin-top: 20px;
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.next-btn:hover {
-    background-color: #e64a19;
-}
-
-/* Summary.css */
-.summary {
-    padding: 20px;
-    text-align: center;
-}
-
-.summary ul {
-    list-style: none;
-    padding: 0;
-}
-
-.summary li {
-    margin: 8px 0;
-}
-
-.confirm-btn {
-    margin-top: 20px;
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.confirm-btn:hover {
-    background-color: #388e3c;
-}
-
-/* Checkout.css */
-.checkout {
-    padding: 20px;
-    text-align: center;
-}
-
-.checkout button {
-    background-color: #ff5722;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.checkout button:hover {
-    background-color: #e64a19;
-}
-
-/* OrderHistory.css */
-.order-history {
-    padding: 20px;
-    text-align: center;
-}
-
-.order-history table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.order-history th,
-.order-history td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-.order-history th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-/* OrderStatus.css */
 .order-status {
-    padding: 20px;
-    text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
-.order-status ul {
-    list-style: none;
-    padding: 0;
+.status-delivered {
+  background-color: #dcfce7;
+  color: #166534;
 }
 
-.order-status li {
-    margin: 8px 0;
-    display: flex;
-    justify-content: space-between;
+.status-in-progress {
+  background-color: #dbeafe;
+  color: #1e40af;
 }
 
-.order-status span {
-    font-weight: bold;
+.order-items {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.order-price {
+  font-weight: 600;
+  color: #111827;
+}
+
+.order-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .user-dashboard {
+    padding: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .order-price {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.order-item {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Loading States */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Utility Classes */
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }

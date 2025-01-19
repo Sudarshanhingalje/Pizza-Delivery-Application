@@ -1,4 +1,3 @@
-// File: PizzaBuilder.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Base from './Base';
@@ -28,7 +27,6 @@ const PizzaBuilder = () => {
     return (
         <div className="pizza-builder">
             <h1>Build Your Pizza</h1>
-            {/* Pass the setSelectedBase as onSelectBase to Base component */}
             <Base onSelectBase={setSelectedBase} />
             <Sauce onSauceSelect={setSelectedSauce} />
             <Cheese onCheeseSelect={setSelectedCheese} />

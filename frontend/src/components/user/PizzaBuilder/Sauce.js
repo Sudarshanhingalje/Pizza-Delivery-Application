@@ -1,4 +1,3 @@
-// File: Sauce.js
 import React, { useState } from 'react';
 import './Sauce.css';
 

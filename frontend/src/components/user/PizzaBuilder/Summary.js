@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { RazerpayPayment } from '../../../services/razerpay';
 import './Summary.css';
+import axios from 'axios';
 
 const Summary = () => {
     const location = useLocation();
@@ -19,15 +20,42 @@ const Summary = () => {
             alert('Please fill in all required fields');
             return;
         }
-        RazerpayPayment(total, (response) => {
+    
+        RazerpayPayment(total, async (response) => {
             if (response && response.razorpay_payment_id) {
-                alert('Payment Successful! Order Placed.');
-                navigate('/checkout');
+                alert('Payment Successful! Placing your order...');
+    
+                const orderData = {
+                    user: name, // Pass the user name directly
+                    address,
+                    pincode,
+                    items: [
+                        { itemName: base?.name, quantity: 1 },
+                        { itemName: sauce?.name, quantity: 1 },
+                        { itemName: cheese?.name, quantity: 1 },
+                        ...veggies.map((veg) => ({ itemName: veg.name, quantity: 1 })),
+                    ],
+                };
+    
+                // Log the orderData being sent to the backend
+                console.log('Order Data being sent to backend:', orderData);
+    
+                try {
+                    const response = await axios.post('http://localhost:2000/api/orders/place', orderData);
+                    console.log('Backend Response:', response.data);
+                    alert('Order placed successfully!');
+                    navigate('/checkout'); // Redirect to checkout page
+                } catch (error) {
+                    console.error('Backend Error:', error.response?.data || error.message);
+                    alert('Failed to place the order. Please try again.');
+                }
             } else {
                 alert('Payment Failed! Please try again.');
             }
         });
     };
+    
+    
 
     return (
         <div className="summary-container">
