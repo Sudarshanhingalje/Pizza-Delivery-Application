@@ -13,7 +13,7 @@ const authMiddleware = (req, res, next) => {
         console.log('Decoded Token:', decoded); 
         req.user = decoded;
 
-        if (!req.user.isAdmin) {
+        if (req.path=== '/user' && !req.user.isAdmin) {
             console.log('User is not an admin'); 
             return res.status(403).json({ error: 'Access denied' });
         }

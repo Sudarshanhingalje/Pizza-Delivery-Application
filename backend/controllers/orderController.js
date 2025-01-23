@@ -123,3 +123,13 @@ exports.deleteOrder = async (req, res) => {
     }
 };
 
+exports.getOrdersByUser = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const orders = await Order.find({ user: userId }).populate('items');
+        res.status(200).json(orders);
+    } catch (error) {
+        console.error('Error fetching user orders:', error);
+        res.status(500).json({ error: 'Failed to fetch orders' });
+    }
+};

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { RazerpayPayment } from '../../../services/razerpay';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 import './Summary.css';
 import axios from 'axios';
 
@@ -20,13 +21,11 @@ const Summary = () => {
             alert('Please fill in all required fields');
             return;
         }
-    
+
         RazerpayPayment(total, async (response) => {
             if (response && response.razorpay_payment_id) {
-                alert('Payment Successful! Placing your order...');
-    
                 const orderData = {
-                    user: name, // Pass the user name directly
+                    user: name,
                     address,
                     pincode,
                     items: [
@@ -36,26 +35,38 @@ const Summary = () => {
                         ...veggies.map((veg) => ({ itemName: veg.name, quantity: 1 })),
                     ],
                 };
-    
-                // Log the orderData being sent to the backend
+
                 console.log('Order Data being sent to backend:', orderData);
-    
+
                 try {
                     const response = await axios.post('http://localhost:2000/api/orders/place', orderData);
                     console.log('Backend Response:', response.data);
-                    alert('Order placed successfully!');
-                    navigate('/checkout'); // Redirect to checkout page
+
+                    Swal.fire({
+                        imageUrl: 'images/Animated+Gift.gif', 
+                        imageWidth: 400,
+                        imageHeight: 400, 
+                        background: 'rgba(0, 0, 0, 0)',
+                        showConfirmButton: false,
+                        timer: 3000, 
+                      
+                       
+                    }).then(() => {
+                        navigate('/checkout'); 
+                    });
                 } catch (error) {
                     console.error('Backend Error:', error.response?.data || error.message);
-                    alert('Failed to place the order. Please try again.');
                 }
             } else {
-                alert('Payment Failed! Please try again.');
+                Swal.fire({
+                    title: 'Payment Failed!',
+                    text: 'Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'Retry',
+                });
             }
         });
     };
-    
-    
 
     return (
         <div className="summary-container">

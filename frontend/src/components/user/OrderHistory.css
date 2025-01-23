@@ -1,24 +1,26 @@
-.order-history {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+.o-history {
+  margin-top: 20px;
+  padding: 10px;
 }
 
-.order-history h2 {
-    margin-bottom: 15px;
+.o-list {
+  list-style: none;
+  padding: 0;
 }
 
-.order-history table {
-    width: 100%;
-    border-collapse: collapse;
+.o-item {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.order-history th,
-.order-history td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
+.o-item div {
+  display: flex;
+  justify-content: space-between;
 }
 
-.order-history th {
-    background-color: #f4f4f4;
+.o-item span {
+  font-size: 14px;
 }

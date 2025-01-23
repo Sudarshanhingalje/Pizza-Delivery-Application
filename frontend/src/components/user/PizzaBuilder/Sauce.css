@@ -3,7 +3,7 @@
     max-width: 800px;
     margin: 20px auto;
     text-align: center;
-    background-color: #f9f9f9;
+    
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -30,7 +30,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s ease-in-out;
 }
 
 .sauce-card:hover {
@@ -39,7 +39,7 @@
 }
 
 .sauce-card.selected {
-    border-color: #17a2b8;
+    border-color: #a3b817;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background: #e6f9ff;
 }
@@ -54,4 +54,3 @@
     font-size: 14px;
     color: #666;
 }
-

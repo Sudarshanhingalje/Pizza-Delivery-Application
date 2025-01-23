@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
     ],
     status: {
         type: String,
-        enum: ['Order Received', 'In Kitchen', 'Sent to Delivery'], // Valid enum values
+        enum: ['Order Received', 'In Kitchen', 'Sent to Delivery'], 
         default: 'Order Received',
     },
     createdAt: { type: Date, default: Date.now },

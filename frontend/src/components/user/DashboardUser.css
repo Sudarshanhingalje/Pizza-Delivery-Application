@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('../../../src/assets/udbg.jpg') no-repeat center fixed;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+ 
+
+
+
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+ 
+  border-radius: 25px;
+  
+}
+
+.user-dashboard h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #D63031;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.welcome-text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #636E72;
+  margin-bottom: 30px;
+}
+
+.dashboard-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.dashboarduser-button {
+  padding: 18px 32px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #D63031 0%, #E17055 100%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.dashboarduser-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(214, 48, 49, 0.2);
+}
+
+.home-button {
+  background: linear-gradient(135deg, #636E72 0%, #B2BEC3 100%);
+  max-width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
+.order-history-container {
+  margin-top: 40px;
+  padding: 35px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.order-history-container h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #D63031;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.history-subtitle {
+  text-align: center;
+  color: #636E72;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.order-list {
+  display: grid;
+  gap: 20px;
+}
+
+.order-item {
+  padding: 25px;
+  background: #F9F9F9;
+  border-radius: 15px;
+  border: 1px solid #EEE;
+  transition: all 0.3s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  background: white;
+}
+
+.order-item div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #EEE;
+}
+
+.order-item div:last-child {
+  border-bottom: none;
+}
+
+.order-item div strong {
+  color: #2D3436;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .user-dashboard {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .user-dashboard h1 {
+    font-size: 2.4rem;
+  }
+
+  .welcome-text {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .order-history-container {
+    padding: 25px;
+  }
+
+  .order-history-container h2 {
+    font-size: 2rem;
+  }
+}

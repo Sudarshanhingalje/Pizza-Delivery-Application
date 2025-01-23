@@ -1,87 +1,59 @@
-/* Checkout container styling */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 .checkout-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 50px;
     margin: 50px auto;
     width: 80%;
-    max-width: 800px;
-    background: linear-gradient(135deg, #f06, #f79);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    border-radius: 20px;
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
 }
 
-/* Success message styling */
 .checkout-container h2 {
     font-size: 36px;
     font-weight: 700;
-    color: #fff;
+    color: #333;
     margin-bottom: 20px;
-    text-transform: uppercase;
 }
 
-/* Thank you message styling */
 .checkout-container p {
     font-size: 18px;
-    color: #fff;
+    color: #555;
     font-weight: 500;
     margin-bottom: 30px;
 }
 
-/* Button Styling */
 .pay-button {
-    padding: 15px 30px;
+    padding: 15px 40px;
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    background-color: #f8a5c2;
+    background: #fc466b;
     border: none;
-    border-radius: 50px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-top: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
 }
 
-/* Button hover effect */
 .pay-button:hover {
-    background-color: #f66;
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background: #3f5efb;
+    transform: translateY(-5px);
 }
 
-/* Button focus effect */
-.pay-button:focus {
-    outline: none;
-    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.7);
-}
-
-/* Animating the container for fade-in */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Media query for smaller devices */
 @media (max-width: 768px) {
     .checkout-container {
         padding: 30px;
-        width: 90%;
-    }
-    .checkout-container h2 {
-        font-size: 28px;
-    }
-    .pay-button {
-        font-size: 16px;
     }
 }

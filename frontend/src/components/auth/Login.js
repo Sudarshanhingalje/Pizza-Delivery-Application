@@ -29,17 +29,17 @@ const Login = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-    
+
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('isAdmin', data.isAdmin);
-                localStorage.setItem('name', data.name);
-    
+                localStorage.setItem('token', data.token); 
+                localStorage.setItem('isAdmin', data.isAdmin); 
+                localStorage.setItem('name', data.name); 
+
                 if (data.isAdmin) {
-                    navigate('/admin-dashboard'); // Redirect to admin dashboard
+                    navigate('/admin-dashboard'); 
                 } else {
-                    navigate('/PizzaBuilder'); // Redirect to user dashboard
+                    navigate('/Dashboarduser');
                 }
             } else {
                 setError(data.error || 'Login failed.');
@@ -48,7 +48,6 @@ const Login = () => {
             setError('An error occurred during login.');
         }
     };
-    
 
     const toggleModal = () => {
         setShowModal(!showModal);
@@ -128,11 +127,16 @@ const Login = () => {
 
     return (
         <div className="login-page">
+            <video autoPlay loop muted className="background-video">
+                <source src="/images/115059-703067865_large.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
             <nav className="nav-header">
                 <div className="nav-brand">
                     <Link to="/" className="brand-link">
                         <img src="/images/pizza-logo.png" alt="Pizza Palette" className="brand-logo" />
-                        <span className="brand-name">Pizza House</span>
+                        <span className="brand-name">पिzza House</span>
                     </Link>
                 </div>
                 <div className="nav-links">
@@ -151,7 +155,7 @@ const Login = () => {
             <div className="login-container">
                 <div className="login-content">
                     <div className="login-illustration">
-                        <img src="/images/pizza-box.jpg" alt="Pizza Box" className="pizza-icon" />
+                        {/* <img src="/images/pizza-box.jpg" alt="Pizza Box" className="pizza-icon" /> */}
                     </div>
                     <h1 className="hero-heading">
                         It's Pizza Time!

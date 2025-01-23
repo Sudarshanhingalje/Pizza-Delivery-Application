@@ -1,13 +1,22 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 .login-page {
     min-height: 100vh;
-    background-color: #fff5e6;
+
 }
 
 
@@ -17,7 +26,7 @@
     align-items: center;
     padding: 1rem 2rem;
     background-color: white;
- 
+
 }
 
 .nav-brand {
@@ -85,13 +94,13 @@
 
 .hero-heading {
     font-size: 3.5rem;
-    color: #333;
+    color: #eb2323;
     margin-bottom: 1rem;
 }
 
 .hero-text {
     font-size: 1.5rem;
-    color: #666;
+    color: #060400fd;
 }
 
 /* Modal styles */
@@ -121,6 +130,7 @@
     position: relative;
     animation: modalSlideIn 0.3s ease-out;
 }
+
 .modal-close {
     position: absolute;
     top: 1rem;
@@ -178,7 +188,7 @@
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-   
+
 }
 
 .submit-button:hover {
@@ -207,7 +217,3 @@
     margin-bottom: 1.5rem;
     text-align: center;
 }
-
-
-
-
