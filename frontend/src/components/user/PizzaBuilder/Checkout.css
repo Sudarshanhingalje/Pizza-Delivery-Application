@@ -1,3 +1,4 @@
+/* Checkout.css */
 .background-video {
     position: fixed;
     top: 0;
@@ -8,7 +9,7 @@
     z-index: -1;
 }
 
-.checkout-container {
+.checkout-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,21 +22,21 @@
     text-align: center;
 }
 
-.checkout-container h2 {
+.checkout-header {
     font-size: 36px;
     font-weight: 700;
     color: #333;
     margin-bottom: 20px;
 }
 
-.checkout-container p {
+.checkout-message {
     font-size: 18px;
     color: #555;
     font-weight: 500;
     margin-bottom: 30px;
 }
 
-.pay-button {
+.action-button {
     padding: 15px 40px;
     font-size: 18px;
     font-weight: bold;
@@ -47,13 +48,13 @@
     transition: 0.3s ease;
 }
 
-.pay-button:hover {
+.action-button:hover {
     background: #3f5efb;
     transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
-    .checkout-container {
+    .checkout-wrapper {
         padding: 30px;
     }
 }

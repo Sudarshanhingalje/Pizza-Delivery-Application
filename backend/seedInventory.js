@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Inventory = require('./models/Inventory'); // Adjust the path if needed
+const Inventory = require('./models/Inventory');
 
 dotenv.config();
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(async () => {
         console.log('Connected to MongoDB');
@@ -33,11 +32,11 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
         ];
 
 
-        // Clear existing inventory
+
         await Inventory.deleteMany({});
         console.log('Inventory cleared.');
 
-        // Insert new inventory data
+
         await Inventory.insertMany(items);
         console.log('Inventory seeded successfully.');
 

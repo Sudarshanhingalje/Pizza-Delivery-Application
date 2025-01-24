@@ -6,16 +6,34 @@ const ForgotPassword = () => {
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Simulate API call for password reset
+
         if (!email.includes('@')) {
-            setError('Please enter a valid email');
+            setError('Please enter a valid email address');
+            setMessage('');
             return;
         }
-        console.log(`Password reset link sent to: ${email}`);
-        setMessage('Password reset link has been sent to your email.');
-        setError('');
+
+        try {
+            const response = await fetch('http://localhost:2000/api/auth/forgot-password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Something went wrong');
+            }
+
+            setMessage('Password reset email sent successfully. Please check your inbox.');
+            setError('');
+        } catch (err) {
+            setMessage('');
+            setError(err.message || 'Failed to send reset email');
+        }
     };
 
     return (

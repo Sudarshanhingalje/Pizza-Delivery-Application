@@ -17,6 +17,7 @@ const DashboardAdmin = () => {
         }
     };
 
+    
 
     const fetchInventory = async () => {
         try {
@@ -70,9 +71,9 @@ const DashboardAdmin = () => {
             {loading ? (
                 <p>Loading orders...</p>
             ) : (
-                <ul className="orders-list">
+                <ul className="orders-lists">
                     {orders.map((order) => (
-                        <li key={order._id} className="order-item">
+                        <li key={order._id} className="order-items">
                             <div>
                                 <p><strong>Order ID:</strong> {order._id}</p>
                                 <p><strong>Name:</strong> {order.user}</p>
@@ -92,9 +93,9 @@ const DashboardAdmin = () => {
                                     {order.items.reduce((acc, item) => acc + item.quantity * (inventory.find(i => i.itemName === item.itemName)?.price || 0), 0)}
                                 </p>
 
-                                <p><strong>Actual Paid:</strong> ₹{order.totalPrice}</p>
+                              
                             </div>
-                            <div className="order-actions">
+                            <div className="order-actions-btn">
                                 <button
                                     onClick={() => handleStatusChange(order._id, 'In Kitchen')}
                                     disabled={order.status === 'In Kitchen'}

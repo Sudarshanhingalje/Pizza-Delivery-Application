@@ -9,7 +9,7 @@ const DashboardUser = () => {
 
   return (
     <div className="user-dashboard">
-      <h1>🍕 Your Pizza Paradise</h1>
+      <h1>🍕 Your Pizza House</h1>
       <p className="welcome-text">
         Ready to craft your perfect slice of happiness?
       </p>

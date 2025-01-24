@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f8f8f8;
+    color: #333;
+    font-size: 16px;
 }
 
 .background-video {
@@ -16,17 +23,23 @@
 
 .login-page {
     min-height: 100vh;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-
 .nav-header {
+    width: 100%;
+    padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: white;
-
+    background: rgba(255, 87, 34, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .nav-brand {
@@ -38,17 +51,18 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333;
 }
 
 .brand-logo {
-    height: 40px;
+    height: 50px;
     margin-right: 10px;
+    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.3));
 }
 
 .brand-name {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
+    color: white;
 }
 
 .nav-links {
@@ -57,78 +71,89 @@
 }
 
 .nav-links a {
+    color: white;
+    font-weight: 600;
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffeb3b;
 }
 
 .login-register-btn {
     background-color: #ff5722;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
     cursor: pointer;
-    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Main content styles */
+.login-register-btn:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+}
+
 .login-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-}
-
-.login-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 10vh auto;
     text-align: center;
 }
 
-.login-illustration {
-    margin-bottom: 2rem;
-}
-
-.pizza-icon {
-    width: 200px;
-    height: auto;
+.login-content {
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
 }
 
 .hero-heading {
     font-size: 3.5rem;
-    color: #eb2323;
-    margin-bottom: 1rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 .hero-text {
-    font-size: 1.5rem;
-    color: #060400fd;
+    font-size: 1.8rem;
+    color: #ffeb3b;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
-/* Modal styles */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    transition: opacity 0.3s ease;
 }
 
 .modal-overlay.show {
     display: flex;
+    opacity: 1;
 }
 
 .modal-content {
-    background: white;
+    background: #fff;
     padding: 2rem;
-    border-radius: 1rem;
-    width: 90%;
+    border-radius: 10px;
+    width: 100%;
     max-width: 400px;
     position: relative;
     animation: modalSlideIn 0.3s ease-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .modal-close {
@@ -149,11 +174,13 @@
 
 .modal-header h2 {
     color: #333;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
 .modal-header p {
     color: #ff5722;
+    font-size: 1.2rem;
 }
 
 .form-group {
@@ -166,6 +193,13 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff5e6;
+    font-size: 1.2rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #ff5722;
+    outline: none;
 }
 
 .forgot-password {
@@ -174,9 +208,14 @@
 }
 
 .forgot-password a {
-    color: #666;
+    color: #ff5722;
     text-decoration: none;
     font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #e64a19;
 }
 
 .submit-button {
@@ -186,13 +225,14 @@
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
-
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .submit-button:hover {
-    background-color: #f4511e;
+    background-color: #e64a19;
+    transform: scale(1.05);
 }
 
 .toggle-form {
@@ -205,8 +245,14 @@
     border: none;
     color: #ff5722;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
     padding: 0 0.5rem;
-    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.toggle-button:hover {
+    color: #e64a19;
 }
 
 .error-message {
@@ -216,4 +262,23 @@
     border-radius: 8px;
     margin-bottom: 1.5rem;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero-heading {
+        font-size: 2.5rem;
+    }
+
+    .hero-text {
+        font-size: 1.2rem;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .form-input {
+        font-size: 1rem;
+    }
 }

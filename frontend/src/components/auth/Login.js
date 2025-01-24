@@ -57,7 +57,7 @@ const Login = () => {
     const Modal = () => (
         <div className={`modal-overlay ${showModal ? 'show' : ''}`} onClick={toggleModal}>
             <div className="modal-content" onClick={e => e.stopPropagation()}>
-                <button className="modal-close" onClick={toggleModal}>&times;</button>
+              
                 <div className="modal-header">
                     <h2>{isSignUp ? 'Create Account' : 'Welcome Back!'}</h2>
                     <p>{isSignUp ? 'Join our pizza family!' : "You've been Missed!"}</p>
@@ -141,7 +141,9 @@ const Login = () => {
                 </div>
                 <div className="nav-links">
                     <Link to="/">Home</Link>
-                    <Link to="/OrderHistory">My Orders</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/contact">contactUs</Link>
+                    
                 </div>
                 <div className="nav-auth">
                     <button className="login-register-btn" onClick={toggleModal}>
@@ -155,7 +157,6 @@ const Login = () => {
             <div className="login-container">
                 <div className="login-content">
                     <div className="login-illustration">
-                        {/* <img src="/images/pizza-box.jpg" alt="Pizza Box" className="pizza-icon" /> */}
                     </div>
                     <h1 className="hero-heading">
                         It's Pizza Time!

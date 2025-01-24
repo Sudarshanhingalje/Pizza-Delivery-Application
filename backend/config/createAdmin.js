@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
-const User = require('../models/User'); // Corrected path
+const User = require('../models/User'); 
 
-// Load environment variables
+
 dotenv.config();
 
-// Connect to MongoDB
+
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI, {
@@ -22,12 +22,12 @@ const connectDB = async () => {
 
 const createAdmin = async () => {
     try {
-        const email = "sudarshanhingalje1@gmail.com";
+        const email = "pizzahouse.adm.team@gmail.com";
         const password = "Sudu@1308";
+
         
-        // Check if admin already exists
         let admin = await User.findOne({ email });
-        
+
         if (!admin) {
             const hashedPassword = await bcrypt.hash(password, 10);
             admin = new User({
@@ -49,7 +49,7 @@ const createAdmin = async () => {
     }
 };
 
-// Execute the script
+
 const run = async () => {
     await connectDB();
     await createAdmin();

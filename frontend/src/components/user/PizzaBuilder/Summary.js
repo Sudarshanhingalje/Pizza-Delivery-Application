@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { RazerpayPayment } from '../../../services/razerpay';
-import Swal from 'sweetalert2'; // Import SweetAlert2
+import Swal from 'sweetalert2';
 import './Summary.css';
 import axios from 'axios';
 
@@ -12,15 +12,45 @@ const Summary = () => {
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [pincode, setPincode] = useState('');
+    const [pincodeError, setPincodeError] = useState('');
 
     const { base, sauce, cheese, veggies } = location.state || {};
     const total = (base?.price || 0) + (sauce?.price || 0) + (cheese?.price || 0) + veggies.reduce((sum, veg) => sum + (veg.price || 0), 0);
+
+    const validatePincode = (value) => {
+        if (!/^\d{6}$/.test(value)) {
+            setPincodeError('Pincode must be exactly 6 digits');
+            return false;
+        }
+        setPincodeError('');
+        return true;
+    };
+
+    const handlePincodeChange = (e) => {
+        const value = e.target.value;
+
+
+        if (/^\d{0,6}$/.test(value)) {
+            setPincode(value);
+
+
+            if (value.length === 6) {
+                validatePincode(value);
+            } else {
+                setPincodeError('');
+            }
+        }
+    };
 
     const handleCheckout = () => {
         if (!name || !address || !pincode) {
             alert('Please fill in all required fields');
             return;
         }
+        if (!validatePincode(pincode)) {
+            return;
+        }
+
 
         RazerpayPayment(total, async (response) => {
             if (response && response.razorpay_payment_id) {
@@ -43,16 +73,16 @@ const Summary = () => {
                     console.log('Backend Response:', response.data);
 
                     Swal.fire({
-                        imageUrl: 'images/Animated+Gift.gif', 
+                        imageUrl: 'images/Animated+Gift.gif',
                         imageWidth: 400,
-                        imageHeight: 400, 
+                        imageHeight: 400,
                         background: 'rgba(0, 0, 0, 0)',
                         showConfirmButton: false,
-                        timer: 3000, 
-                      
-                       
+                        timer: 3000,
+
+
                     }).then(() => {
-                        navigate('/checkout'); 
+                        navigate('/checkout');
                     });
                 } catch (error) {
                     console.error('Backend Error:', error.response?.data || error.message);
@@ -115,8 +145,9 @@ const Summary = () => {
                     id="pincode"
                     placeholder="Enter your pincode"
                     value={pincode}
-                    onChange={(e) => setPincode(e.target.value)}
+                    onChange={handlePincodeChange}
                 />
+                {pincodeError && <p style={{ color: 'red' }}>{pincodeError}</p>}
             </div>
             <button onClick={handleCheckout} className="checkout-button">
                 Proceed to Payment

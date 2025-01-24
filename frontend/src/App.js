@@ -12,6 +12,7 @@ import Checkout from './components/user/PizzaBuilder/Checkout';
 import DashboardAdmin from './components/admin/DashboardAdmin';
 import AdminRoute from './components/admin/AdminRoute';
 import DashboardUser from './components/user/DashboardUser';
+import ResetPassword from './components/auth/ResetPassword';
 
 const App = () => {
     
@@ -21,6 +22,8 @@ const App = () => {
                 <Route path="/" element={<Login />} />
                 <Route path="/Dashboarduser" element={<DashboardUser />} />
                 <Route path="/Forgot-Password" element={<ForgotPassword />} />
+                <Route path="/reset-password/:token" element={<ResetPassword />} />
+
                 <Route path="/register" element={<Register />} />
                 <Route path="/PizzaBuilder" element={<PizzaBuilder />} />
                 <Route path="/summary" element={<Summary />} />
