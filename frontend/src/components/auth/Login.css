@@ -1,24 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
     background: #f8f8f8;
     color: #333;
     font-size: 16px;
-}
-
-.background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
 }
 
 .login-page {
@@ -35,7 +18,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 87, 34, 0.9);
     position: fixed;
     top: 0;
     left: 0;
@@ -56,13 +38,14 @@ body {
 .brand-logo {
     height: 50px;
     margin-right: 10px;
-    filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(2px 2px 10px rgba(11, 136, 232, 0.952));
 }
 
 .brand-name {
+    font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: rgb(235, 235, 21);
 }
 
 .nav-links {
@@ -71,14 +54,13 @@ body {
 }
 
 .nav-links a {
-    color: white;
+    color: rgba(250, 239, 119, 0.786);
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #ffeb3b;
+    color: #f1e9f1;
 }
 
 .login-register-btn {
@@ -106,33 +88,33 @@ body {
 
 .login-content {
     color: white;
-    background: rgba(0, 0, 0, 0.6);
+
     padding: 2rem;
     border-radius: 15px;
-    backdrop-filter: blur(5px);
+
 }
 
 .hero-heading {
-    font-size: 3.5rem;
+    font-size: 12rem;
     color: #fff;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    animation: textAnimation 2s ease-out backwards;
+
 }
 
 .hero-text {
     font-size: 1.8rem;
     color: #ffeb3b;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
 .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 80px;
+    left: 500px;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+
     display: none;
     justify-content: center;
     align-items: center;
@@ -179,7 +161,7 @@ body {
 }
 
 .modal-header p {
-    color: #ff5722;
+    color: #d03b0e;
     font-size: 1.2rem;
 }
 
@@ -264,21 +246,40 @@ body {
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .hero-heading {
-        font-size: 2.5rem;
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #ff5722;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #e64a19;
+}
+
+@keyframes textAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
     }
 
-    .hero-text {
-        font-size: 1.2rem;
+    50% {
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    .modal-content {
-        width: 90%;
-        padding: 1.5rem;
-    }
-
-    .form-input {
-        font-size: 1rem;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

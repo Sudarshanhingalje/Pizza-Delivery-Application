@@ -128,7 +128,7 @@ const Login = () => {
     return (
         <div className="login-page">
             <video autoPlay loop muted className="background-video">
-                <source src="/images/115059-703067865_large.mp4" type="video/mp4" />
+                {/* <source src="../images/1737723194006.mp4" type="video/mp4" /> */}
                 Your browser does not support the video tag.
             </video>
 
@@ -136,7 +136,7 @@ const Login = () => {
                 <div className="nav-brand">
                     <Link to="/" className="brand-link">
                         <img src="/images/pizza-logo.png" alt="Pizza Palette" className="brand-logo" />
-                        <span className="brand-name">पिzza House</span>
+                        <span className="brand-name">Pizza House</span>
                     </Link>
                 </div>
                 <div className="nav-links">
@@ -164,7 +164,11 @@ const Login = () => {
                     <p className="hero-text">Craving for a pizza? You are in the right place!</p>
                 </div>
             </div>
+            <div>
+                <p></p>
+            </div>
         </div>
+        
     );
 };
 

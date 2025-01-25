@@ -28,7 +28,7 @@ const ForgotPassword = () => {
                 throw new Error(data.error || 'Something went wrong');
             }
 
-            setMessage('Password reset email sent successfully. Please check your inbox.');
+            setMessage('Password reset email sent successfully.');
             setError('');
         } catch (err) {
             setMessage('');

@@ -8,14 +8,14 @@ const sendLowStockNotification = async (item) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_USER,  // your email
-            pass: process.env.EMAIL_PASS,  // your email password
+            user: process.env.EMAIL_USER,  
+            pass: process.env.EMAIL_PASS,  
         },
     });
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: process.env.ADMIN_EMAIL,  // admin email
+        to: process.env.ADMIN_EMAIL,  
         subject: `Low Stock Alert: ${item.itemName}`,
         text: `The stock for ${item.itemName} is below the threshold. Current stock: ${item.stock}. Please restock the item as soon as possible.`,
     };
@@ -43,7 +43,7 @@ const checkStockLevels = async () => {
     }
 };
 
-setInterval(checkStockLevels, 60 * 60 * 1000); 
+setInterval(checkStockLevels, 60 * 60 * 2000); 
 
 exports.updateStock = async (req, res) => {
     try {
