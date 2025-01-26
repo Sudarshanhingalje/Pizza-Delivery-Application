@@ -1,0 +1,156 @@
+/* Keyframe for text animation */
+@keyframes textAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Slide In Animation */
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .navbar-links {
+        gap: 1rem;
+    }
+
+    .hero-heading {
+        font-size: 6rem;
+    }
+
+    .hero-text {
+        font-size: 1.6rem;
+    }
+
+    .login-container {
+        margin-top: 5vh;
+    }
+
+    .navbar-links a {
+        font-size: 1.2rem;
+    }
+
+    .logo-img {
+        height: 80px;
+    }
+
+    .modal-content {
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .login-image {
+        width: 80%;
+        max-width: 400px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: flex;
+        flex-direction: column; 
+        gap: 1rem; 
+        align-items: center;
+    }
+
+    .auth-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    .hero-heading {
+        font-size: 5rem;
+    }
+
+    .hero-text {
+        font-size: 1.4rem;
+    }
+
+    .login-container {
+        margin-top: 3vh;
+    }
+
+    .form-input {
+        font-size: 1rem;
+    }
+
+    .navbar-brand {
+        flex-direction: column;
+    }
+
+    .navbar-auth {
+        margin-top: 1rem;
+    }
+
+    .modal-left {
+        padding: 10px;
+    }
+
+    .login-image {
+        width: 100%;
+    }
+
+    .login-page-container {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-left {
+        padding: 0;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .hero-heading {
+        font-size: 4rem;
+    }
+
+    .hero-text {
+        font-size: 1.2rem;
+    }
+
+    .login-container {
+        margin-top: 2vh;
+    }
+
+    .form-input {
+        font-size: 1rem;
+    }
+
+    .navbar-links {
+        display: block;
+        text-align: center;
+    }
+
+    .navbar-links a {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+} 

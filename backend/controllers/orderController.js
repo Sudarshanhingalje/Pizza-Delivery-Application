@@ -1,7 +1,7 @@
 const Order = require('../models/Order');
 const Inventory = require('../models/Inventory');
 const mongoose = require('mongoose');
-
+const nodemailer = require('nodemailer');
 
 exports.placeOrder = async (req, res) => {
     const session = await mongoose.startSession();
@@ -144,3 +144,43 @@ exports.getOrdersByUser = async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch orders' });
     }
 };
+
+const sendLowStockNotification = async (item) => {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL_USER,  
+            pass: process.env.EMAIL_PASS,  
+        },
+    });
+
+    const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.ADMIN_EMAIL,  
+        subject: `Low Stock Alert: ${item.itemName}`,
+        text: `The stock for ${item.itemName} is below the threshold. Current stock: ${item.stock}. Please restock the item as soon as possible.`,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        console.log(`Low stock notification sent for ${item.itemName}`);
+    } catch (error) {
+        console.error('Error sending low stock notification:', error);
+    }
+};
+const checkStockLevels = async () => {
+    try {
+        
+        const items = await Inventory.find();
+
+     
+        items.forEach((item) => {
+            if (item.stock < item.threshold) {
+                sendLowStockNotification(item);  
+            }
+        });
+    } catch (error) {
+        console.error('Error checking stock levels:', error);
+    }
+};
+setInterval(checkStockLevels, 24 * 60 * 60 * 1000);//everyday it will check stock and update it

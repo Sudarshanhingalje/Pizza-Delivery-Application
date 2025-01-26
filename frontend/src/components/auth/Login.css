@@ -1,18 +1,19 @@
-body {
-    background: #f8f8f8;
-    color: #333;
-    font-size: 16px;
-}
-
-.login-page {
+/* Background Styling */
+.login-page-container {
+    background-image: url('../../../src/assets/bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    padding: 0 10px; 
+    padding-top: 120px;
 }
 
-.nav-header {
+/* Navbar Styling */
+.navbar {
     width: 100%;
     padding: 1.5rem 2rem;
     display: flex;
@@ -24,7 +25,8 @@ body {
     z-index: 1000;
 }
 
-.nav-brand {
+/* Navbar Brand */
+.navbar-brand {
     display: flex;
     align-items: center;
 }
@@ -35,35 +37,38 @@ body {
     text-decoration: none;
 }
 
-.brand-logo {
-    height: 50px;
+.logo-img {
+    height: 100px;
     margin-right: 10px;
-    filter: drop-shadow(2px 2px 10px rgba(11, 136, 232, 0.952));
+    filter: drop-shadow(2px 2px 10px rgba(0, 200, 1000, 0.952));
 }
 
-.brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: bold;
-    color: rgb(235, 235, 21);
-}
-
-.nav-links {
+/* Navbar Links (Home, About, Contact Us) */
+.navbar-links {
     display: flex;
     gap: 2rem;
+    margin-left: auto; /* Push to the right */
 }
 
-.nav-links a {
-    color: rgba(250, 239, 119, 0.786);
+.navbar-links a {
+    color: rgb(248, 227, 0);
+    font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
 }
 
-.nav-links a:hover {
+.navbar-links a:hover {
     color: #f1e9f1;
 }
 
-.login-register-btn {
+
+.navbar-auth {
+    margin-right: 100px;
+    margin-left: 50px; 
+    display: flex;
+}
+
+.auth-button {
     background-color: #ff5722;
     color: white;
     border: none;
@@ -74,47 +79,50 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.login-register-btn:hover {
+.auth-button:hover {
     background-color: #e64a19;
-    transform: scale(1.05);
 }
 
+/* Login Container */
 .login-container {
     width: 100%;
     max-width: 1000px;
-    margin: 10vh auto;
+    margin: 5vh auto 0; /* Move content closer to the top */
     text-align: center;
+    margin-top: 10px;
 }
 
+/* Login Content */
 .login-content {
     color: white;
-
     padding: 2rem;
     border-radius: 15px;
-
 }
 
+
+/* Hero Section */
 .hero-heading {
     font-size: 12rem;
     color: #fff;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     animation: textAnimation 2s ease-out backwards;
-
 }
 
 .hero-text {
     font-size: 1.8rem;
     color: #ffeb3b;
-    margin-bottom: 2rem;
+    margin-bottom: 15rem;
 }
 
+/* Modal Overlay */
 .modal-overlay {
     position: fixed;
-    top: 80px;
-    left: 500px;
+    top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
-
+    background-color: rgba(0, 0, 0, 0.7);
     display: none;
     justify-content: center;
     align-items: center;
@@ -128,45 +136,53 @@ body {
 }
 
 .modal-content {
+    display: flex;
+    gap: 20px;
     background: #fff;
     padding: 2rem;
     border-radius: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
     position: relative;
     animation: modalSlideIn 0.3s ease-out;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-}
-
-.modal-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.modal-header h2 {
-    color: #333;
+/* Modal Headings */
+.modal-real h2 {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
+    color: #d32f2f;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-.modal-header p {
-    color: #d03b0e;
-    font-size: 1.2rem;
+/* Modal Layout */
+.modal-left {
+    flex: 1;
+    padding: 20px;
+    align-items: center;
 }
 
+.modal-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Login Image */
+.login-image {
+    max-width: 100%;
+    width: 1000px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Form Styling */
 .form-group {
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .form-input {
@@ -184,6 +200,7 @@ body {
     outline: none;
 }
 
+/* Forgot Password */
 .forgot-password {
     text-align: right;
     margin-bottom: 1.5rem;
@@ -200,10 +217,11 @@ body {
     color: #e64a19;
 }
 
+/* Submit Button */
 .submit-button {
     width: 100%;
     padding: 1rem;
-    background-color: #ff5722;
+    background-color: #22ff9c;
     color: white;
     border: none;
     border-radius: 8px;
@@ -213,10 +231,11 @@ body {
 }
 
 .submit-button:hover {
-    background-color: #e64a19;
+    background-color: #19e686;
     transform: scale(1.05);
 }
 
+/* Toggle Form */
 .toggle-form {
     text-align: center;
     margin-top: 1.5rem;
@@ -237,6 +256,7 @@ body {
     color: #e64a19;
 }
 
+/* Error Message */
 .error-message {
     background-color: #ffebee;
     color: #c62828;
@@ -244,42 +264,4 @@ body {
     border-radius: 8px;
     margin-bottom: 1.5rem;
     text-align: center;
-}
-
-.footer {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: auto;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer a {
-    color: #ff5722;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer a:hover {
-    color: #e64a19;
-}
-
-@keyframes textAnimation {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-
-    50% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }

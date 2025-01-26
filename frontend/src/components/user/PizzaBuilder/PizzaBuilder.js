@@ -27,6 +27,9 @@ const PizzaBuilder = () => {
     return (
         <div className="pizza-builder">
             <h1>Build Your Pizza</h1>
+            <div className="pizzabuilder-image">
+                <img src="/images/about.png" alt="about pizza" />
+            </div>
             <Base onSelectBase={setSelectedBase} />
             <Sauce onSauceSelect={setSelectedSauce} />
             <Cheese onCheeseSelect={setSelectedCheese} />

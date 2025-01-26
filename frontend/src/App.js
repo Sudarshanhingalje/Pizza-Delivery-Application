@@ -13,18 +13,23 @@ import DashboardAdmin from './components/admin/DashboardAdmin';
 import AdminRoute from './components/admin/AdminRoute';
 import DashboardUser from './components/user/DashboardUser';
 import ResetPassword from './components/auth/ResetPassword';
+import AboutUs from './components/auth/About';
+import ContactUs from './components/auth/Contact';
 
 const App = () => {
-    
+
     return (
         <Router>
             <Routes>
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/contact" element={<ContactUs />} />
+
                 <Route path="/" element={<Login />} />
                 <Route path="/Dashboarduser" element={<DashboardUser />} />
                 <Route path="/Forgot-Password" element={<ForgotPassword />} />
                 <Route path="/reset-password/:token" element={<ResetPassword />} />
-
                 <Route path="/register" element={<Register />} />
+                
                 <Route path="/PizzaBuilder" element={<PizzaBuilder />} />
                 <Route path="/summary" element={<Summary />} />
 

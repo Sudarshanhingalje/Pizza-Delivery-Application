@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
+import './Animation.css';
 
 
 const Login = () => {
@@ -32,12 +33,12 @@ const Login = () => {
 
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('token', data.token); 
-                localStorage.setItem('isAdmin', data.isAdmin); 
-                localStorage.setItem('name', data.name); 
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('isAdmin', data.isAdmin);
+                localStorage.setItem('name', data.name);
 
                 if (data.isAdmin) {
-                    navigate('/admin-dashboard'); 
+                    navigate('/admin-dashboard');
                 } else {
                     navigate('/Dashboarduser');
                 }
@@ -56,97 +57,96 @@ const Login = () => {
 
     const Modal = () => (
         <div className={`modal-overlay ${showModal ? 'show' : ''}`} onClick={toggleModal}>
-            <div className="modal-content" onClick={e => e.stopPropagation()}>
-              
-                <div className="modal-header">
-                    <h2>{isSignUp ? 'Create Account' : 'Welcome Back!'}</h2>
-                    <p>{isSignUp ? 'Join our pizza family!' : "You've been Missed!"}</p>
-                </div>
-
-                {error && <div className="error-message">{error}</div>}
-
-                <form onSubmit={handleSubmit} className="modal-form">
-                    <div className="form-group">
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Enter Email Address"
-                            required
-                            className="form-input"
-                            autoComplete="username"
-                        />
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-left">
+                    <div className="modal-real">
+                        <h2>{isSignUp ? 'Create Account' : 'Welcome Back!'}</h2>
                     </div>
 
-                    <div className="form-group">
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            placeholder="Enter Password"
-                            required
-                            className="form-input"
-                            autoComplete="current-password"
-                        />
-                    </div>
+                    {error && <div className="error-message">{error}</div>}
 
-                    {!isSignUp && (
-                        <div className="forgot-password">
-                            <Link to="/Forgot-Password">Forgot your password?</Link>
+                    <form onSubmit={handleSubmit} className="modal-form">
+                        <div className="form-group">
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder="Enter Email Address"
+                                required
+                                className="form-input"
+                                autoComplete="username"
+                            />
                         </div>
-                    )}
 
-                    <button type="submit" className="submit-button">
-                        {isSignUp ? 'Sign Up' : 'Login'}
-                    </button>
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                placeholder="Enter Password"
+                                required
+                                className="form-input"
+                                autoComplete="current-password"
+                            />
+                        </div>
 
-                    <div className="toggle-form">
-                        <p>
-                            {isSignUp ? 'Already have an account?' : "Don't have an account?"}
-                            {isSignUp ? (
-                                <button
-                                    type="button"
-                                    onClick={() => setIsSignUp(false)}
-                                    className="toggle-button"
-                                >
-                                    Sign In
-                                </button>
-                            ) : (
-                                <Link to="/register" className="toggle-button">
-                                    Sign Up
-                                </Link>
-                            )}
-                        </p>
-                    </div>
-                </form>
+                        {!isSignUp && (
+                            <div className="forgot-password">
+                                <Link to="/Forgot-Password">Forgot your password?</Link>
+                            </div>
+                        )}
+
+                        <button type="submit" className="submit-button">
+                            {isSignUp ? 'Sign Up' : 'Sign In'}
+                        </button>
+
+                        <div className="toggle-form">
+                            <p>
+                                {isSignUp ? 'Already have an account?' : "Don't have an account?"}
+                                {isSignUp ? (
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsSignUp(false)}
+                                        className="toggle-button"
+                                    >Sign In
+                                    </button>
+                                ) : (
+                                    <Link to="/register" className="toggle-button">
+                                        Sign Up
+                                    </Link>
+                                )}
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div className="modal-right">
+                    <img
+                        src="/images/login-pages.gif"
+                        alt="Pizza Animation"
+                        className="login-image"
+                    />
+                </div>
             </div>
         </div>
     );
 
     return (
-        <div className="login-page">
-            <video autoPlay loop muted className="background-video">
-                {/* <source src="../images/1737723194006.mp4" type="video/mp4" /> */}
-                Your browser does not support the video tag.
-            </video>
-
-            <nav className="nav-header">
-                <div className="nav-brand">
+        <div className="login-page-container">
+            <nav className="navbar">
+                <div className="navbar-brand">
                     <Link to="/" className="brand-link">
-                        <img src="/images/pizza-logo.png" alt="Pizza Palette" className="brand-logo" />
-                        <span className="brand-name">Pizza House</span>
+                        <img src="/images/brandlogo.png" alt="Pizza Palette" className="logo-img" />
                     </Link>
                 </div>
-                <div className="nav-links">
+                <div className="navbar-links">
                     <Link to="/">Home</Link>
                     <Link to="/about">About</Link>
-                    <Link to="/contact">contactUs</Link>
-                    
+                    <Link to="/contact">Contact Us</Link>
                 </div>
-                <div className="nav-auth">
-                    <button className="login-register-btn" onClick={toggleModal}>
+                <div className="navbar-auth">
+                    <button className="auth-button" onClick={toggleModal}>
                         Sign in / Sign up
                     </button>
                 </div>
@@ -156,19 +156,11 @@ const Login = () => {
 
             <div className="login-container">
                 <div className="login-content">
-                    <div className="login-illustration">
-                    </div>
-                    <h1 className="hero-heading">
-                        It's Pizza Time!
-                    </h1>
+                    <h1 className="hero-heading">It's Pizza Time!</h1>
                     <p className="hero-text">Craving for a pizza? You are in the right place!</p>
                 </div>
             </div>
-            <div>
-                <p></p>
-            </div>
         </div>
-        
     );
 };
 
