@@ -2,21 +2,18 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../../../assets/bg2.jpg') no-repeat center center fixed;
+  background: url('../../../assets/bg3.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   color: #2D3436;
 }
+
 .pizza-builder {
   max-width: 1200px;
   margin: 40px auto;
   padding: 50px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 30px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  text-align: center; /* Keep text centered */
-  position: relative; /* Enable positioning for child elements */
+  text-align: center;
+  position: relative;
 }
 
 .pizza-builder h1 {
@@ -29,8 +26,9 @@ body {
   letter-spacing: -1px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
-  display: inline-block; /* Keep text inline */
+  display: inline-block;
 }
+
 .pizza-builder h2 {
   font-size: 2.2rem;
   color: #2D3436;
@@ -38,17 +36,18 @@ body {
   text-align: center;
   font-weight: 700;
 }
+
 .pizzabuilder-image {
-  display: inline-block; 
-  vertical-align: middle; 
-  margin-left: 20px; 
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
 }
 
 .pizzabuilder-image img {
   max-width: 300px;
   height: auto;
- 
-  
+
+
 }
 
 .section {

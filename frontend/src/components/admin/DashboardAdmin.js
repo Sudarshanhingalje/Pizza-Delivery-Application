@@ -17,8 +17,6 @@ const DashboardAdmin = () => {
         }
     };
 
-    
-
     const fetchInventory = async () => {
         try {
             const result = await axios.get('/inventory');
@@ -27,8 +25,6 @@ const DashboardAdmin = () => {
             console.error('Failed to fetch inventory:', error.response?.data || error.message);
         }
     };
-
-
     useEffect(() => {
         fetchOrders();
         fetchInventory();
@@ -93,7 +89,7 @@ const DashboardAdmin = () => {
                                     {order.items.reduce((acc, item) => acc + item.quantity * (inventory.find(i => i.itemName === item.itemName)?.price || 0), 0)}
                                 </p>
 
-                              
+
                             </div>
                             <div className="order-actions-btn">
                                 <button

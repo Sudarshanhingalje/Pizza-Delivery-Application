@@ -23,7 +23,7 @@ const Register = () => {
         e.preventDefault();
         const { name, email, password, confirmPassword } = formData;
 
-        if(password !== confirmPassword) {
+        if (password !== confirmPassword) {
             setError('Passwords do not match');
             return;
         }
@@ -97,7 +97,7 @@ const Register = () => {
                     />
                 </div>
                 <button type="submit" disabled={isLoading}>
-                   Sign up 
+                    Sign up
                 </button>
             </form>
         </div>

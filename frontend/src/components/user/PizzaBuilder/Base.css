@@ -1,6 +1,7 @@
 .base-container {
   padding: 20px;
   text-align: center;
+  background-color: #c7ce9e;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
   max-width: 900px;
@@ -69,10 +70,10 @@
 
 @media (max-width: 600px) {
   .base-card {
-      width: 100%;
+    width: 100%;
   }
 
   .base-options {
-      flex-direction: column;
+    flex-direction: column;
   }
 }

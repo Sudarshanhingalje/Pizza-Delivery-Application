@@ -4,7 +4,6 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import ForgotPassword from './components/auth/ForgotPassword';
 import OrderHistory from './components/user/OrderHistory';
-import OrderStatus from './components/user/OrderStatus';
 import Base from './components/user/PizzaBuilder/Base';
 import PizzaBuilder from './components/user/PizzaBuilder/PizzaBuilder';
 import Summary from './components/user/PizzaBuilder/Summary';
@@ -29,13 +28,13 @@ const App = () => {
                 <Route path="/Forgot-Password" element={<ForgotPassword />} />
                 <Route path="/reset-password/:token" element={<ResetPassword />} />
                 <Route path="/register" element={<Register />} />
-                
+
                 <Route path="/PizzaBuilder" element={<PizzaBuilder />} />
                 <Route path="/summary" element={<Summary />} />
 
                 <Route path="/pizza-builder/base" element={<Base />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
-                <Route path="/order-status" element={<OrderStatus />} />
+
 
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/admin-dashboard" element={<AdminRoute><DashboardAdmin /></AdminRoute>} />

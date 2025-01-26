@@ -1,26 +1,37 @@
 .o-history {
-  margin-top: 20px;
-  padding: 10px;
+    margin: 2rem auto;
+    max-width: 600px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
 .o-list {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .o-item {
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
 }
 
-.o-item div {
-  display: flex;
-  justify-content: space-between;
+.o-item p {
+    margin: 0.5rem 0;
 }
 
-.o-item span {
-  font-size: 14px;
+.loading-text,
+.error-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff6b6b;
+}
+
+.no-orders {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
 }

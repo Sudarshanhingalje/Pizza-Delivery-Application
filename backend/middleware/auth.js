@@ -8,12 +8,10 @@ const authMiddleware = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log('Decoded Token:', decoded);
         req.user = decoded;
 
-        if (req.path === '/user' && !req.user.isAdmin) {
-            console.log('User is not an admin');
-            return res.status(403).json({ error: 'Access denied' });
+        if (req.path === '/' && !req.user.isAdmin) {
+            return res.status(403).json({ error: 'Access denied. Admin only.' });
         }
 
         next();

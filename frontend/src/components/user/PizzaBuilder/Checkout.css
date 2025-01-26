@@ -1,4 +1,3 @@
-/* Checkout.css */
 .background-video {
     position: fixed;
     top: 0;
@@ -41,7 +40,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    background: #fc466b;
+    background: #5cc970;
     border: none;
     border-radius: 30px;
     cursor: pointer;
@@ -49,7 +48,7 @@
 }
 
 .action-button:hover {
-    background: #3f5efb;
+    background: #fb3fcf;
     transform: translateY(-5px);
 }
 

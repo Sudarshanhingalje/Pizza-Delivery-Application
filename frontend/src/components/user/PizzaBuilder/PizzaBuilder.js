@@ -26,7 +26,7 @@ const PizzaBuilder = () => {
 
     return (
         <div className="pizza-builder">
-            <h1>Build Your Pizza</h1>
+            <h1>Build Your Own Pizza</h1>
             <div className="pizzabuilder-image">
                 <img src="/images/about.png" alt="about pizza" />
             </div>

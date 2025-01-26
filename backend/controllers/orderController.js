@@ -14,6 +14,8 @@ exports.placeOrder = async (req, res) => {
             throw new Error('Invalid order data. All fields are required.');
         }
 
+        const notificationPromises = [];
+
         for (const item of items) {
             const inventoryItem = await Inventory.findOne({ itemName: item.itemName });
 
@@ -24,23 +26,27 @@ exports.placeOrder = async (req, res) => {
             if (inventoryItem.stock < item.quantity) {
                 throw new Error(`Insufficient stock for ${item.itemName}. Requested: ${item.quantity}, Available: ${inventoryItem.stock}`);
             }
+
             await Inventory.updateOne(
                 { itemName: item.itemName },
                 { $inc: { stock: -item.quantity } },
                 { session }
             );
 
-        
             const updatedStock = inventoryItem.stock - item.quantity;
             if (updatedStock < inventoryItem.threshold) {
-                await sendLowStockNotification(inventoryItem);
+                notificationPromises.push(sendLowStockNotification(inventoryItem));
             }
         }
 
         const order = new Order({ user, address, pincode, items, status: 'Order Received' });
         await order.save({ session });
 
+
         await session.commitTransaction();
+
+        await Promise.all(notificationPromises);
+
         session.endSession();
 
         res.status(201).json({ message: 'Order placed successfully' });
@@ -90,14 +96,17 @@ exports.deleteOrder = async (req, res) => {
 
 exports.getOrdersByUser = async (req, res) => {
     try {
-        const userId = req.user.id;
-        const orders = await Order.find({ user: userId }).populate('items');
+
+        const userEmail = req.user.email;
+
+        const orders = await Order.find({ user: userEmail });
+
         res.status(200).json(orders);
     } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch orders' });
+        console.error('Error in getOrdersByUser:', error);
+        res.status(500).json({ error: 'Failed to fetch orders', details: error.message });
     }
 };
-
 
 
 exports.updateOrderStatus = async (req, res) => {
@@ -135,28 +144,20 @@ exports.deleteOrder = async (req, res) => {
     }
 };
 
-exports.getOrdersByUser = async (req, res) => {
-    try {
-        const userId = req.user.id;
-        const orders = await Order.find({ user: userId }).populate('items');
-        res.status(200).json(orders);
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch orders' });
-    }
-};
+
 
 const sendLowStockNotification = async (item) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_USER,  
-            pass: process.env.EMAIL_PASS,  
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
         },
     });
 
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: process.env.ADMIN_EMAIL,  
+        to: process.env.ADMIN_EMAIL,
         subject: `Low Stock Alert: ${item.itemName}`,
         text: `The stock for ${item.itemName} is below the threshold. Current stock: ${item.stock}. Please restock the item as soon as possible.`,
     };
@@ -170,13 +171,13 @@ const sendLowStockNotification = async (item) => {
 };
 const checkStockLevels = async () => {
     try {
-        
+
         const items = await Inventory.find();
 
-     
+
         items.forEach((item) => {
             if (item.stock < item.threshold) {
-                sendLowStockNotification(item);  
+                sendLowStockNotification(item);
             }
         });
     } catch (error) {

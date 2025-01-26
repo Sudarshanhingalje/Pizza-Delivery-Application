@@ -13,9 +13,9 @@ const ResetPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Check if passwords match
+
         if (password !== confirmPassword) {
-            setError("Passwords do not match!");
+            setError('Passwords do not match!');
             return;
         }
 
@@ -25,22 +25,25 @@ const ResetPassword = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ token, password }), // Sending token and new password
+                body: JSON.stringify({ token, password }),
             });
 
             const result = await response.json();
 
             if (response.ok) {
-                setMessage(result.message); // Display success message
+                setMessage(result.message || 'Password reset successful!');
+                setError('');
                 setTimeout(() => {
-                    navigate('/login'); // Redirect to login page after successful reset
+                    navigate('/');
                 }, 2000);
             } else {
                 setError(result.error || 'Error resetting password');
+                setMessage('');
             }
         } catch (error) {
             console.error('Error resetting password:', error);
             setError('Server error. Please try again later.');
+            setMessage('');
         }
     };
 
@@ -68,8 +71,8 @@ const ResetPassword = () => {
                         required
                     />
                 </div>
-                {error && <p className="error">{error}</p>}
-                {message && <p className="success">{message}</p>}
+                {error && <p className="error-message">{error}</p>}
+                {message && <p className="success-message">{message}</p>}
                 <button type="submit">Reset Password</button>
             </form>
         </div>

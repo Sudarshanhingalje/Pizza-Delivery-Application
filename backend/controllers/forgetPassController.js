@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
+
 const User = require('../models/userModel');
+const bcrypt = require('bcrypt');
 
 
 exports.forgotPassword = async (req, res) => {
@@ -27,7 +29,7 @@ exports.forgotPassword = async (req, res) => {
         const resetUrl = `http://localhost:3000/reset-password/${resetToken}`;
         console.log('Reset URL:', resetUrl);
 
-        // Email configuration
+
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -61,10 +63,12 @@ exports.forgotPassword = async (req, res) => {
     }
 };
 
+//for reset new password
 exports.resetPassword = async (req, res) => {
     const { token, password } = req.body;
 
     try {
+
         const user = await User.findOne({
             resetPasswordToken: token,
             resetPasswordExpires: { $gt: Date.now() },
@@ -77,9 +81,10 @@ exports.resetPassword = async (req, res) => {
         user.password = await bcrypt.hash(password, 10);
         user.resetPasswordToken = undefined;
         user.resetPasswordExpires = undefined;
+
         await user.save();
 
-        res.json({ message: 'Password successfully updated' });
+        res.status(200).json({ message: 'Password successfully updated' });
     } catch (error) {
         console.error('Error in resetPassword:', error);
         res.status(500).json({ error: 'Server error' });

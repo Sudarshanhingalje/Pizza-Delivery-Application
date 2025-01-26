@@ -110,7 +110,7 @@ const Login = () => {
                                         type="button"
                                         onClick={() => setIsSignUp(false)}
                                         className="toggle-button"
-                                    >Sign In
+                                    > Sign In
                                     </button>
                                 ) : (
                                     <Link to="/register" className="toggle-button">
