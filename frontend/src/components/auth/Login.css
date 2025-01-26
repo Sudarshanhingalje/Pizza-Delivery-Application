@@ -118,7 +118,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.486);
     display: none;
     justify-content: center;
     align-items: center;
@@ -134,7 +134,7 @@
 .modal-content {
     display: flex;
     gap: 20px;
-    background: #fff;
+    background: linear-gradient(135deg, #a462eb, #3ce2fc); 
     padding: 2rem;
     border-radius: 10px;
     width: 100%;
@@ -142,6 +142,7 @@
     position: relative;
     animation: modalSlideIn 0.3s ease-out;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    color: #fff; 
 }
 
 .modal-real h2 {
@@ -201,14 +202,15 @@
 }
 
 .forgot-password a {
-    color: #ff5722;
+    color: #021ff5;
+    font-weight: 600;
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    
 }
 
 .forgot-password a:hover {
-    color: #e64a19;
+    color: #ff3d02;
 }
 
 .submit-button {
@@ -237,7 +239,7 @@
 .toggle-button {
     background: none;
     border: none;
-    color: #ff5722;
+    color: #0d00fc;
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;

@@ -7,7 +7,8 @@
 }
 
 .admin-dashboard h1 {
-  font-size: 1.8rem;
+  font-size: 3rem;
+  font-family: 'Times New Roman', Times, serif;
   color: #1e293b;
   margin-bottom: 1.5rem;
   border-bottom: 3px solid #3b82f6;
@@ -15,7 +16,8 @@
 }
 
 .admin-dashboard h2 {
-  font-size: 1.4rem;
+  font-size: 2rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #334155;
   margin: 1rem 0;
 }
@@ -28,7 +30,7 @@
 }
 
 .order-items {
-  background: white;
+  background: rgb(131, 235, 209);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -91,7 +93,7 @@
 }
 
 .inventory-category {
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 8px;
   padding: 1rem;
   margin: 1rem 0;
@@ -112,7 +114,7 @@
 }
 
 .inventory-category li {
-  background: #f8fafc;
+  background: #e2ee75;
   padding: 0.8rem;
   border-radius: 6px;
   border: 1px solid #e2e8f0;
@@ -133,3 +135,4 @@
     grid-template-columns: 1fr;
   }
 }
+

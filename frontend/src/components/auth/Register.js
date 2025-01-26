@@ -31,7 +31,7 @@ const Register = () => {
         try {
             setIsLoading(true);
             await axios.post('http://localhost:2000/api/auth/register', { name, email, password });
-            navigate('/'); // Redirect to login page after successful registration
+            navigate('/');
         } catch (err) {
             setError(err.response?.data?.error || 'Registration failed');
         } finally {
@@ -41,7 +41,15 @@ const Register = () => {
 
     return (
         <div className="register-container">
-            <h2>Sign up </h2>
+            
+            <div className="modal-right">
+                <img
+                    src="/images/brandlogo.png"
+                    alt="Pizza Animation"
+                    className="login-image"
+                />
+            </div>
+
             <form onSubmit={handleSubmit}>
                 {error && <p className="error-message">{error}</p>}
                 <div className="form-group">
