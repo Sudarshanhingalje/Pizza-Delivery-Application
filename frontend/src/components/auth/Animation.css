@@ -1,4 +1,3 @@
-/* Keyframe for text animation */
 @keyframes textAnimation {
     0% {
         opacity: 0;
@@ -16,7 +15,6 @@
     }
 }
 
-/* Modal Slide In Animation */
 @keyframes modalSlideIn {
     from {
         transform: translateY(-20px);
